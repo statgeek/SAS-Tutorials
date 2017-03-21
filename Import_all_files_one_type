@@ -1,0 +1,68 @@
+********DRAFT***********************************;
+
+%macro list_files(dir,ext);
+	%local filrf rc did memcnt name i;
+	%let rc=%sysfunc(filename(filrf,&dir));
+	%let did=%sysfunc(dopen(&filrf));
+
+	%if &did eq 0 %then
+		%do;
+			%put Directory &dir cannot be open or does not exist;
+
+			%return;
+		%end;
+
+	%do i = 1 %to %sysfunc(dnum(&did));
+		%let name=%qsysfunc(dread(&did,&i));
+
+		%if %qupcase(%qscan(&name,-1,.)) = %upcase(&ext) %then
+			%do;
+				%put &dir\&name;
+				%let file_name =  %qscan(&name,1,.);
+				%put &file_name;
+
+				data _tmp;
+					length dir $512 name $100;
+					dir=symget("dir");
+					name=symget("name");
+					path = catx('\',dir,name);
+					the_name = substr(name,1,find(name,'.')-1);
+				run;
+
+				proc append base=list data=_tmp force;
+				run;
+
+				quit;
+
+				proc sql;
+					drop table _tmp;
+				quit;
+
+			%end;
+		%else %if %qscan(&name,2,.) = %then
+			%do;
+				%list_files(&dir\&name,&ext)
+			%end;
+	%end;
+
+	%let rc=%sysfunc(dclose(&did));
+	%let rc=%sysfunc(filename(filrf));
+%mend list_files;
+
+%macro import_file(path, file_name, dataset_name );
+
+	proc import 
+		datafile="&path.\&file_name."
+		dbms=xlsx
+		out=&dataset_name replace;
+	run;
+
+%mend;
+
+%list_files(c:\_localData\temp, xlsx);
+
+data _null_;
+	set list;
+	string = catt('%import_file(', dir, ', ',  name,', ', catt('test', put(_n_, z2.)), ');');
+	call execute (string);
+run;
