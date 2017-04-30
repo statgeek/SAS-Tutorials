@@ -1,0 +1,81 @@
+proc sort data=sashelp.iris out=iris;
+    by species;
+run;
+
+/*SGScatter sample*/
+proc sgscatter data=iris;
+    By Species;
+    matrix petallength petalwidth sepallength / ellipse=(type=mean) 
+        diagonal=(histogram kernel);
+run;
+
+/*Bar Chart*/
+data bar_chart;
+    input question answer $ value;
+    cards;
+1 Yes 98
+1 No 2
+;
+run;
+
+proc sgplot data=bar_chart;
+    hbar answer / response=value stat=SUM;
+    label answer='Response' value='Percent';
+run;
+
+quit;
+
+*Change to stacked bar chart;
+proc sgplot data=bar_chart;
+    hbar question / group=answer response=value stat=SUM groupdisplay=stack 
+        CATEGORYORDER=RESPDESC;
+    label answer='Response' value='Percent';
+    xaxis min=96;
+    yaxis display=none;
+run;
+
+quit;
+
+*Customize the axis - within procedure changes, add title;
+proc sgplot data=bar_chart;
+    hbar question / group=answer response=value stat=SUM groupdisplay=stack 
+        CATEGORYORDER=RESPDESC;
+    label answer='Response' value='Percent';
+    xaxis min=96;
+    yaxis display=none;
+    title 'Does truncating an axis lead to misleading interpretations';
+run;
+
+
+*Switch graph types:
+hbar to vbar
+switch y vs x axis statements;
+proc sgplot data=bar_chart;
+    vbar question / group=answer response=value stat=SUM groupdisplay=stack 
+        CATEGORYORDER=RESPDESC;
+    label answer='Response' value='Percent';
+    yaxis min=96;
+    xaxis display=none;
+    title 'Does truncating an axis lead to misleading interpretations';
+run;
+
+*Broken axis instead?;
+proc sgplot data=bar_chart;
+    vbar question / group=answer response=value stat=SUM groupdisplay=stack 
+        CATEGORYORDER=RESPDESC;
+    label answer='Response' value='Percent';
+    yaxis ranges=(0-10 90-100);
+
+    /*specify the ranges for broken range*/
+    xaxis display=none;
+    title 'Broken Axis instead?';
+run;
+
+
+
+
+*Line Graph;
+proc sgplot data=sashelp.stocks;
+where stock = 'IBM';
+series x=date y= open;
+run;quit;
