@@ -1,0 +1,39 @@
+/*--This program requires SAS 9.4--*/
+%macro lineAnnually(dsn=, start=, end=);
+   %let start=%sysfunc(inputn(&start,anydtdte9.));
+   %let end=%sysfunc(inputn(&end,anydtdte9.));
+   %let dif=%sysfunc(intck(month,&start,&end));
+     %do i=0 %to &dif;
+      %let date=%sysfunc(intnx(month,&start,&i,b),date9.);
+
+         proc sgplot data=sashelp.stocks; 
+             where date > &start and date < "&date"d and stock='IBM'; 
+             series x=date y=open; 
+             xaxis interval=month min='01Jan1990'd max='01Jan2007'd; 
+             yaxis values=(0 to 200 by 50); 
+             footnote j=l 'Created using the SGPLOT Procedure, using SAS UE'; 
+         run; 
+
+        quit;
+    %end;
+%mend lineAnnually;
+
+
+
+/*--Create animation--*/
+options papersize=('11 in', '7 in') 
+printerpath=gif 
+animation=start 
+animduration=0.1 
+animloop=yes 
+noanimoverlay
+nodate;
+ods printer file='/folders/myfolders/LineGraph.gif';
+
+ods graphics / width=10in height=6in imagefmt=GIF;
+
+%lineAnnually(dsn=sashelp.stocks , start=01Jan1990, end=01Jan2007);
+
+options printerpath=gif animation=stop;
+ods printer close;
+
