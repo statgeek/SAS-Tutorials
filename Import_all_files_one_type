@@ -1,5 +1,5 @@
-********DRAFT***********************************;
 
+%*Creates a list of all files in the DIR directory with the specified extension (EXT);
 %macro list_files(dir,ext);
 	%local filrf rc did memcnt name i;
 	%let rc=%sysfunc(filename(filrf,&dir));
@@ -49,6 +49,7 @@
 	%let rc=%sysfunc(filename(filrf));
 %mend list_files;
 
+%*Macro to import a single file, using the path, filename and an output dataset name must be specified;
 %macro import_file(path, file_name, dataset_name );
 
 	proc import 
@@ -59,8 +60,10 @@
 
 %mend;
 
+*Create the list of files, in this case all XLSX files;
 %list_files(c:\_localData\temp, xlsx);
 
+%*Call macro once for each entry in the list table created from the %list_files() macro;
 data _null_;
 	set list;
 	string = catt('%import_file(', dir, ', ',  name,', ', catt('test', put(_n_, z2.)), ');');
