@@ -1,0 +1,17 @@
+*specify the path to where the files should be saved;
+ods listing  gpath='/folders/myfolders/';
+*specify the output type;
+ods graphics / imagename='mygraph' imagefmt=png;
+proc sgplot data=sashelp.class;
+scatter x=weight y=height;
+run;quit;
+
+
+*Demo for creating a PDF;
+ods pdf file='/folders/myfolders/demo.pdf' style=meadows;
+
+proc sgplot data=sashelp.class;
+scatter x=weight y=height;
+run;quit;
+
+ods pdf close;
