@@ -1,0 +1,25 @@
+/*This code generates a new tab for each age in the workbook*/
+proc sql noprint;
+	select distinct age into : age1-
+		from sashelp.class;
+quit;
+
+%let num_ages = &sqlobs.;
+
+%macro loop;
+	ods excel file='C:\_localdata\temp\test.xlsx';
+	%do i=1 %to &num_ages;
+		%put &i;
+
+		ods excel options (sheet_name="Age = &&age&i");
+
+		proc print data=sashelp.class;
+			where age=&&age&i;
+		run;
+
+	%end;
+%mend;
+
+ods excel close;
+
+%loop;
