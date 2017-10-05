@@ -1,5 +1,8 @@
+
+******************************************************;
 *Add average value to a dataset;
 *Solution 1 - PROC MEANS + Data step;
+******************************************************;
 
 proc means data=sashelp.class noprint;
     output out=avg_values mean(height)=avg_height;
@@ -22,9 +25,10 @@ select *, mean(height) as avg_height
 from sashelp.class;
 quit;
 
+******************************************************;
 *Add average value to a dataset - with grouping variables;
 *Solution 1 - PROC MEANS + Data step;
-
+******************************************************;
 proc means data=sashelp.class noprint nway;
 class sex;
     output out=avg_values mean(height)=avg_height;
