@@ -37,5 +37,5 @@ proc means data=have stackods nway;
 run;
 
 *Show for display;
-proc print data=want;
+proc print data=want2;
 run;
