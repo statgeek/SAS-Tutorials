@@ -30,7 +30,7 @@ run;
 *First done here:https://communities.sas.com/t5/General-SAS-Programming/Getting-creating-new-summary-variables-longitudinal-data/m-p/347940/highlight/false#M44842;
 *Another way to present data is as follows;
 
-proc means data=have stackods nway;
+proc means data=have stackods nway n min max mean median std p5 p95;
     by id;
     var feature1-feature3;
     ods output summary=want2;
