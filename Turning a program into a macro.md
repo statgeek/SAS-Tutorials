@@ -40,7 +40,7 @@ run;
 ```
 
 # Step 1
-The next step is to find identify all locations where we ues the MAKE and need to change it. Examining the code we can find 4 places where the Make is used. 
+The next step is to find identify all locations where we ues the MAKE and need to change it. Examining the code we can find 4 places where the Make is used. Each section of the code where MAKE is found is indicated with a number.
 1. ODS HTML Statement - used to control file name
 2. TITLE statement - used to display the title in the report
 3. PROC MEANS WHERE data set option - filters the data for PROC MEANS
@@ -74,6 +74,8 @@ ods html close;
 
 We start by creating a macro variable and replacing all instances of make, with the macro variable. 
 In addition, we need to switch all quotation marks from single to double quotes. Macro variables do not resolve in single quotes.
+
+To create a macro variable you use %LET macroVariableName = <value><function>
 
 
 ```sas
