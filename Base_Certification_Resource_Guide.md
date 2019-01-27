@@ -5,12 +5,13 @@ I fully believe the SAS Certification Prep Guide is quite good at covering the S
 
 Each topic will be listed as a heading and links to the reference documents will be underneath. 
 
-* This is a work in progress that will be completed over time. If you have suggestions feel free to drop me a line at stat_geek hotmail.com. 
+**_This is a work in progress that will be completed over time. If you have suggestions feel free to drop me a line at stat_geek hotmail.com_**
 
 ## Create temporary and permanent SAS data sets.
+Still looking for a reference!
 
 ## Combine SAS Data Sets
-**This one is a big issue and is such an important part of working iwth data that I'll separate this into a few different sections. **
+**_This one is a big issue and is such an important part of working iwth data that I'll separate this into a few different sections._**
 
 ### Concatenate Data Sets
 https://support.sas.com/resources/papers/proceedings/pdfs/sgf2008/085-2008.pdf
@@ -19,10 +20,10 @@ https://support.sas.com/resources/papers/proceedings/pdfs/sgf2008/085-2008.pdf
 
 #### SQL
 https://support.sas.com/resources/papers/proceedings/proceedings/forum2007/109-2007.pdf
-** This covers SQL in significant detail and not all items are relevant to joins/unions though it's useful to know. **
+_This covers SQL in significant detail and not all items are relevant to joins/unions though it's useful to know._
 
 #### Data Step
-** In this case, the best reference I've come across is the documentation. The order isn't great, but it still goes over everything you need to know. I recommend reading this entire chapter. **
+_In this case, the best reference I've come across is the documentation. The order isn't great, but it still goes over everything you need to know. I recommend reading this entire chapter._
 https://documentation.sas.com/?docsetId=lrcon&docsetTarget=n1xc1y8c37apw7n1erbitmuiwvds.htm&docsetVersion=9.4&locale=en
 
 ## Investigate SAS data libraries using base SAS utility procedures.
