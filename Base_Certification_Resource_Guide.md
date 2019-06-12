@@ -46,3 +46,9 @@ https://stats.idre.ucla.edu/sas/faq/how-do-i-write-out-a-file-that-uses-commas-t
 Drop, Keep, & Where (note OUTPUT statement is not covered in this section). 
 https://newonlinecourses.science.psu.edu/stat481/node/13/
 
+
+## Lead and Lags - understanding queues in SAS
+This is a good reference on how to use LEAD/LAG and the gotcha's involved in working with these functions. 
+https://support.sas.com/resources/papers/proceedings16/11221-2016.pdf
+
+
