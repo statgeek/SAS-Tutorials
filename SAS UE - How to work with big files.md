@@ -1,7 +1,7 @@
 # SAS UE - Working with Big Files
 
 ## Set up the VM
-** No specific instructions on how to do this, because it changes between tools and versions **
+*No specific instructions on how to do this, because it changes between tools and versions*
 1. Shut down the VM
 2. Set the # of cores to 2 - this is the limit in SAS UE
 3. Set the RAM to as much as you can - remember this is using your computer's RAM so everything else will be slower, especially if you leave the VM rumming
