@@ -23,3 +23,11 @@ run;
 title 'Example of creating a new variable with the format';
 proc print data=class label;
 run;
+
+*show format used directly;
+
+proc freq data=sashelp.class;
+table age / out= formatted_age;
+format age age_group.;
+run;
+
