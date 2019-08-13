@@ -52,3 +52,11 @@ This is a good reference on how to use LEAD/LAG and the gotcha's involved in wor
 https://support.sas.com/resources/papers/proceedings16/11221-2016.pdf
 
 
+# Macro Language References
+UCLA introductory tutorial on macro variables and macros
+https://stats.idre.ucla.edu/sas/seminars/sas-macros-introduction/
+
+Tutorial on converting a working program to a macro - this method is pretty robust and helps prevent errors and makes it much easier to debug your code.
+https://github.com/statgeek/SAS-Tutorials/blob/master/Turning%20a%20program%20into%20a%20macro.md
+
+
