@@ -1,9 +1,11 @@
-# SAS Base Certification Reference Guide
+# SAS - Recommended References for learning specific topics
 
-The purpose of this is to create a free or almost free reference guide to study towards SAS certification. 
+The initial purpose of this was to create a free or almost free reference guide to study towards SAS certification. 
 I fully believe the SAS Certification Prep Guide is quite good at covering the SAS material, but sometimes you need some more background or more information.
 
-Each topic will be listed as a heading and links to the reference documents will be underneath. 
+
+Each topic will be listed as a heading and links to the reference documents will be underneath.
+I'm currently adding resources that may or may not be related to the Base SAS certification but that are still really good and useful to know. 
 
 **_This is a work in progress that will be completed over time. If you have suggestions feel free to drop me a line at stat_geek hotmail.com_**
 
