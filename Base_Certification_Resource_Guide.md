@@ -64,4 +64,6 @@ This method is pretty robust and helps prevent errors and makes it much easier t
 Obviously biased, because I wrote it :)
 https://github.com/statgeek/SAS-Tutorials/blob/master/Turning%20a%20program%20into%20a%20macro.md
 
+## Examples of common macro usage
+https://communities.sas.com/t5/SAS-Communities-Library/SAS-9-4-Macro-Language-Reference-Has-a-New-Appendix/ta-p/291716
 
